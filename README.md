@@ -87,6 +87,16 @@ Multi-stage CTE pipeline with the following steps:
 
 ## Key Findings
 
+48,071 outlier records, or about 12% of paid transactions
+$670.29M in total exposure
+The India market alone accounted for ~$650M (94%) — this isn't spread evenly; one market is the entire story
+TAX_ID_ERR was the top failure reason at 34% of all failures. Fix that single bug and a third of failed transactions go away.
+Outlier rates were roughly 12% across every SLA tier (24hr, 48hr, 72hr). That last one mattered: it ruled out timing as the cause. The problem isn't slow processing, it's the calculation logic itself.
+
+That last finding was probably the most useful one for the business. It's tempting to assume payment errors come from system load or slow batches. The data quietly closed that door.
+Why it matters
+A bank running these calculations at scale needs to separate random noise from systematic issues. The IN concentration and the TAX_ID_ERR clustering aren't isolated bugs — they're signals that something in the configuration or upstream data needs to be fixed at the source. This pipeline is the kind of thing that turns "we think something's off" into "here's exactly where, how much, and why."
+
 | Finding | Detail |
 |---|---|
 | Total outlier records | 48,071 (12.02% of paid transactions) |
@@ -134,5 +144,4 @@ python audit_engine_clean.py
 ## Author
 
 **[Lalit Pratap Singh]**  
-[LinkedIn URL]  
-[lalitpratap030498@gmail.com]
+
