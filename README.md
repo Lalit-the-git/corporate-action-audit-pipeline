@@ -94,7 +94,7 @@ Multi-stage CTE pipeline with the following steps:
 - Outlier rates were roughly 12% across every SLA tier (24hr, 48hr, 72hr). That last one mattered: it ruled out timing as the cause. The problem isn't slow processing, it's the calculation logic itself.
 
 - That last finding was probably the most useful one for the business. It's tempting to assume payment errors come from system load or slow batches. The data quietly closed that door.
-- 
+  
 ## Why it matters
 A bank running these calculations at scale needs to separate random noise from systematic issues. The IN concentration and the TAX_ID_ERR clustering aren't isolated bugs — they're signals that something in the configuration or upstream data needs to be fixed at the source. This pipeline is the kind of thing that turns "we think something's off" into "here's exactly where, how much, and why."
 
@@ -140,9 +140,7 @@ python audit_engine_clean.py
 - TAX_ID_ERR identified as top failure reason — fixing this resolves 34% of all failed transactions
 - SLA analysis confirmed timing is not the issue — calculation logic requires review
 
----
 
-## Author
 
-**[Lalit Pratap Singh]**  
+
 
