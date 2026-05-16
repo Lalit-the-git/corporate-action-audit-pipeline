@@ -46,7 +46,7 @@ Power BI — Executive Dashboard
 - **2 Event Types** — Dividend, Bonus
 - **4 Statuses** — Paid, Failed, Pending, Withdrawn
 
-> Dataset simulated to replicate real-world banking operations including Withholding Tax (WHT) rules, point-in-time FX rates, sovereign exemptions, and settlement statuses.
+>The data is simulated, but I built it to mirror real banking operations as closely as I could. That meant including the messy parts — withholding tax rules that vary by country, point-in-time forex rates (a payment from March needs March's USD rate, not today's), sovereign exemptions, and the full range of settlement statuses.
 
 ---
 
